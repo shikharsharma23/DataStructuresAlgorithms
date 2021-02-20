@@ -1,0 +1,70 @@
+from DoublyLinkedList import *
+
+## Test Case 1
+print('Test Case 1')
+obj = MyLinkedList()
+print('Getting value at index 2')
+param_1 = obj.get(2)
+print(param_1)
+print('LL with 3 values added at head')
+obj.addAtHead(3)
+obj.addAtHead(4)
+obj.addAtHead(5)
+print(obj.print_ll())
+print('LL with 2 values added at tail')
+obj.addAtTail(6)
+obj.addAtTail(7)
+print(obj.print_ll())
+print('Adding 2 values at index and one at non existent index')
+obj.addAtIndex(2,15)
+obj.addAtIndex(4,150)
+obj.addAtIndex(1400,150)
+print(obj.print_ll())
+print('Deeleting 2 indices and 1 invalid index')
+obj.deleteAtIndex(4)
+obj.deleteAtIndex(2)
+obj.deleteAtIndex(1000)
+print(obj.print_ll())
+
+## Test Case 2
+print('Test Case 2')
+obj2 = MyLinkedList()
+obj2.addAtHead(1)
+obj2.addAtTail(3)
+obj2.print_ll()
+obj2.addAtIndex(1,2)
+obj2.print_ll()
+obj2.deleteAtIndex(1)
+print('After deletion')
+obj2.print_ll()
+
+
+
+## Test Case 3
+print('Test Case 3')
+obj3 = MyLinkedList()
+obj3.addAtHead(7)
+obj3.addAtHead(2)
+obj3.addAtHead(1)
+obj3.addAtIndex(3,0)
+obj3.print_ll()
+
+## Test Case 4
+print('Test Case 4')
+obj4 = MyLinkedList()
+obj4.addAtHead(1)
+obj4.addAtTail(3)
+obj4.addAtIndex(1,2)
+obj4.print_ll()
+obj4.deleteAtIndex(0)
+obj4.print_ll()
+
+## Test Case 5
+print('Test Case 5')
+obj5 = MyLinkedList()
+obj5.addAtIndex(0,10)
+obj5.print_ll()
+obj5.addAtIndex(0,20)
+obj5.print_ll()
+#obj5.addAtIndex(1,30)
+#obj5.print_ll()
