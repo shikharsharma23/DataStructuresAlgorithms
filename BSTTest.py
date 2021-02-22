@@ -26,3 +26,17 @@ print('Searching for elements')
 print(bst.search_element(8))
 print(bst.search_element(180))
 print(bst.search_element(33))
+
+#print('Deleting a leaf')
+#bst.delete(3)
+
+#print('In order traversal after deletion')
+#bst.print_tree_in_order()
+
+#print('Iterative Delete')
+#bst.delete_iterative(5)
+#bst.print_tree_in_order()
+
+print('Self delete recursive')
+bst.delete_recursive(10)
+bst.print_tree_in_order()
