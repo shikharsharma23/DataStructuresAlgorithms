@@ -204,26 +204,36 @@ class BinarySearchTree:
                parent_in_order_succesor.left = None
 
     def delete_r(self, root, data):
-        ## TODO : handle remaining 3 cases
-        node_to_delete_right = None
-        node_to_delete_left = None
 
         if not root:
-            return
+            return root
         if root.data < data:
-            node_to_delete_right = self.delete_r(root.right, data)
+            root.right = self.delete_r(root.right, data)
         elif root.data > data:
-            node_to_delete_left = self.delete_r(root.left, data)
+            root.left = self.delete_r(root.left, data)
         else:
             if root.left == None and root.right == None:
-                return root
+                return None # this value will be retruned to the correct side(right or left) to the parent node.
+            elif root.left != None and root.right==None:
+                return root.left # if there is no right children, the parent should have the left child as new child
+            elif root.left == None and root.right!=None:
+                return root.right # if there is no left children the parent should have right child as new child
+            else:
+                ## find inorder successor of this node
+                ## update the value of this node with the inordersuccessor
+                ## return this updated node
+                ## also, delete the inorder successor
+                in_order_node = root.right
+                while in_order_node.left:
+                    in_order_node = in_order_node.left
+
+                root.data = in_order_node.data
+                root.right = self.delete_r(root.right, root.data) ## delete in the right subtree recursively
+                ## root.right will have all cascaded information of nodes preserved below it
 
 
-        if(node_to_delete_left):
-            root.left = None
 
-        if(node_to_delete_right):
-            root.right = None
+        return root
 
 
     def delete_recursive(self, data):
